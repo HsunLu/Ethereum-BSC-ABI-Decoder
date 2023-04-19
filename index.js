@@ -11,3 +11,9 @@ function decode() {
   }
   document.getElementById("decoded").textContent = JSON.stringify(decodedData, null, 2);
 }
+
+$(document).ready(function () {
+  $("#decode").click(function () {
+    decode();
+  });
+});
