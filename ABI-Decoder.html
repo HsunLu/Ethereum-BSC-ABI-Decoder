@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ethereum ABI Decoder</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/abi-decoder/build/abi-decoder.js"></script>
+  </head>
+  <body>
+    <h1>Ethereum ABI Decoder</h1>
+    <form>
+      <label for="abi">ABI:</label>
+      <br>
+      <textarea id="abi" rows="10" cols="80"></textarea>
+      <br><br>
+      <label for="data">Data:</label>
+      <br>
+      <textarea id="data" rows="10" cols="80"></textarea>
+      <br><br>
+      <label for="decoder">Decoder:</label>
+      <br>
+      <select id="decoder">
+        <option value="ethers">ethers</option>
+        <option value="abi-decoder">abi-decoder</option>
+      </select>
+      <br><br>
+      <button type="button" onclick="decode()">Decode</button>
+    </form>
+    <br>
+    <h2>Decoded Data</h2>
+    <pre id="decoded"></pre>
+    <script>
+      function decode() {
+        const abi = JSON.parse(document.getElementById("abi").value);
+        const data = document.getElementById("data").value;
+        const decoder = document.getElementById("decoder").value;
+        let decodedData;
+        if (decoder === "ethers") {
+          decodedData = ethers.utils.defaultAbiCoder.decode(abi, data);
+        } else if (decoder === "abi-decoder") {
+          AbiDecoder.addABI(abi);
+          decodedData = AbiDecoder.decodeMethod(data);
+        }
+        document.getElementById("decoded").innerHTML = JSON.stringify(decodedData, null, 2);
+      }
+    </script>
+  </body>
+</html>
