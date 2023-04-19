@@ -4,6 +4,7 @@ function decode() {
   const data = document.getElementById("data").value;
   alert(data);
   const decoder = document.getElementById("decoder").value;
+  alert(decoder);
   let decodedData;
   if (decoder === "ethers") {
     decodedData = ethers.utils.defaultAbiCoder.decode(abi, data);
