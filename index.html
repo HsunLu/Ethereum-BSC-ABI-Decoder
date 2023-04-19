@@ -19,6 +19,13 @@
     </div>
     <div class="content">
       <div class="form-container">
+        <label for="decoder">Decoder</label>
+        <br>
+        <select id="decoder">
+          <option value="abi-decoder">abi-decoder</option>
+          <option value="ethers">ethers</option>
+        </select>
+        <br>
         <label for="abi">ABI</label>
         <br>
         <textarea id="abi" rows="10" placeholder="Enter ABI"></textarea>
@@ -26,13 +33,6 @@
         <label for="data">Input Data</label>
         <br>
         <textarea id="data" rows="10" placeholder="Enter data"></textarea>
-        <br>
-        <label for="decoder">Decoder</label>
-        <br>
-        <select id="decoder">
-          <option value="ethers">ethers</option>
-          <option value="abi-decoder">abi-decoder</option>
-        </select>
         <br>
         <button type="button" id="decode">Decode</button>
       </div>
