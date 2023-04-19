@@ -4,7 +4,8 @@ function decode() {
   const decoder = document.getElementById("decoder").value;
   let decodedData;
   if (decoder === "ethers") {
-    decodedData = ethers.utils.defaultAbiCoder.decode(abi, data);
+    const iface = new ethers.utils.Interface(abi);
+    decodedData = iface.parseTransaction({ data: data });
   } else if (decoder === "abi-decoder") {
     abiDecoder.addABI(abi)
     decodedData = abiDecoder.decodeMethod(data);
