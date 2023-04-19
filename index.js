@@ -12,7 +12,7 @@ function decode() {
     AbiDecoder.decodeMethod(data, abi);
     decodedData = AbiDecoder.getMethodReturn();
   }
-  alert(decodedData);
+  alert("123\n"+decodedData);
   document.getElementById("decoded").textContent = JSON.stringify(decodedData, null, 2);
 }
 
