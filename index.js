@@ -9,8 +9,8 @@ function decode() {
   if (decoder === "ethers") {
     decodedData = ethers.utils.defaultAbiCoder.decode(abi, data);
   } else if (decoder === "abi-decoder") {
-    AbiDecoder.decodeMethod(data, abi);
-    decodedData = AbiDecoder.getMethodReturn();
+    abiDecoder.addABI(abi)
+    decodedData = abiDecoder.decodeMethod(data);
   }
   alert("123\n"+decodedData);
   document.getElementById("decoded").textContent = JSON.stringify(decodedData, null, 2);
