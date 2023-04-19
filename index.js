@@ -1,6 +1,8 @@
 function decode() {
   const abi = JSON.parse(document.getElementById("abi").value);
+  alert(abi);
   const data = document.getElementById("data").value;
+  alert(data);
   const decoder = document.getElementById("decoder").value;
   let decodedData;
   if (decoder === "ethers") {
@@ -9,6 +11,7 @@ function decode() {
     AbiDecoder.decodeMethod(data, abi);
     decodedData = AbiDecoder.getMethodReturn();
   }
+  alert(decodedData);
   document.getElementById("decoded").textContent = JSON.stringify(decodedData, null, 2);
 }
 
